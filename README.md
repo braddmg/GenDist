@@ -57,12 +57,12 @@ options:
   -g2 GENE2, --gene2 GENE2
                         The second gene to compare.
   --output OUTPUT       Base name for output files (CSV and PDF).
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
 ```
-Lets run the script with the resistance.csv file, which was obtained with ABRicate using the CARD database. 
-
+Lets run the script with the resistance.csv file in the repository, which was obtained with ABRicate using the CARD database. 
+THe file should contain the next columns: SEQUENCE, GENE, START and END. 
+```
+python GenDist.py -f resistance.csv -g1 sul3 -g2 qacL --output sul3-qacL
+```
 cd existing_repo
 git remote add origin https://gitlab.com/INISA/gendist.git
 git branch -M main
