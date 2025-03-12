@@ -72,6 +72,11 @@ Run the genetic distance analysis on resistance.csv, which contains resistance g
 ```
 python GenDist.py -f resistance.csv -g1 sul3 -g2 qacL --output sul3-qacL
 ```
+```
+--output sul3-qacL
+Results saved to 'sul3-qacL_results.csv'
+Min: 1147.00 bp, Median: 1180.00 bp, Max: 63309.00 bp, Mode: 1180
+```
 ![Co-occurrence plot](https://github.com/braddmg/images/blob/main/sul3-qacL_histogram-1.png)
 This command will output a histogram of genetic distances between the sul3 and qacL genes.
 The histogram suggests a genetic distance of approximately 1.2 kb, explaining the co-occurrence of these genes across plasmids.
