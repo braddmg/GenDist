@@ -3,7 +3,6 @@
 # Load required libraries
 library(optparse)
 library(igraph)
-library(phyloseq)
 library(ggplot2)
 library(viridis)
 library(ggraph)
