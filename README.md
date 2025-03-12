@@ -1,19 +1,27 @@
-# GenDist
-GenDist is a pipeline design to measure the co-occurrence and genetic distance of gene pairs in a set of múltiple plasmids, genomes or contigs.
+# GenDist Pipeline: Co-occurrence & Genetic Distance Analysis
 
-# Installing conda environment 
-Copy and activate the conda environment 
+GenDist is a pipeline designed to measure the co-occurrence and genetic distance of gene pairs in plasmids, genomes, or contigs.
 
-```
+---
+
+## 1. Install Conda Environment
+
+To get started, clone the repository and create the conda environment:
+
+```bash
 git clone https://github.com/braddmg/GenDist
 cd GenDist
 conda env create -f GenDist.yml
 conda activate GenDist
 ```
-# Generteting a co-occurrence matrix 
-To create a co-occurrence analysis we need a presence absence matrix with contigs as columns and genes as rows. See the file matrix.csv as example.
-Then we can run the R script with the matrix. First run the -h function to see the necesarry options.
+## Co-occurrence Matrix Generation
+To perform co-occurrence analysis, you'll need a presence-absence matrix where:
+- Contigs are columns.
+- Genes are rows.
+Check the example file matrix.csv.
 
+## Running the Co-occurrence Analysis
+Start by reviewing the available options with:
 ```
 Rscript Co-occurrence.R -h 
 ```
@@ -29,18 +37,17 @@ Options:
 
         -h, --help
                 Show this help message and exit
-Lets try to run the matrix.csv with a Jaccard distance of 0.5. This file incorporates the presence of different Antimicrobial genes across a set of IncH plasmids.
-```
+## Example Run
+To run the co-occurrence analysis using the matrix.csv file and a Jaccard distance threshold of 0.5:
+``` bash
 # -p option allow to scale node size by gene prevalence
 Rscript Co-occurrence.R -f matrix.csv -t 0.5 -p -o network.pdf
 ```
-We can evaluate co-occurence genes with the next plot. 
+The plot will evaluate gene co-occurrence. You’ll get a PDF file (network.pdf) with the network and a CSV file with Jaccard distances for further analysis. 
 ![Co-occurrence plot](https://github.com/braddmg/images/blob/main/network-1.png)
-In your folder you also will get a file with the jaccard distances if you need it. 
 
-## Mearusing Genetic Distance 
-We can measure the genetic distance between two genes using the next python script. 
-To see the option use the next command:
+## Measuring Genetic Distance Between Genes 
+To measure the genetic distance between two genes, use the following Python script.
 ```
 python GenDist.py -h
 ```
@@ -55,13 +62,14 @@ options:
   -g1 GENE1, --gene1 GENE1
                         The first gene to compare.
   -g2 GENE2, --gene2 GENE2
-                        The second gene to compare.
+                        The second gene to compare.Give me
   --output OUTPUT       Base name for output files (CSV and PDF).
 ```
-Lets run the script with the resistance.csv file in the repository, which was obtained with ABRicate using the CARD database. 
-THe file should contain the next columns: SEQUENCE, GENE, START and END. 
+## Example Run
+Run the genetic distance analysis on resistance.csv, which contains resistance gene data. You’ll need the columns: SEQUENCE, GENE, START, and END. 
 ```
 python GenDist.py -f resistance.csv -g1 sul3 -g2 qacL --output sul3-qacL
 ```
 ![Co-occurrence plot](https://github.com/braddmg/images/blob/main/sul3-qacL_histogram.pdf)
-In this case these genes since to have a genetic distance aprox of 1.1 kb, that explain their co-occurence across the set of plasmids. 
+This command will output a histogram of genetic distances between the sul3 and qacL genes.
+The histogram suggests a genetic distance of approximately 1.2 kb, explaining the co-occurrence of these genes across plasmids.
