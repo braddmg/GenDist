@@ -63,8 +63,5 @@ THe file should contain the next columns: SEQUENCE, GENE, START and END.
 ```
 python GenDist.py -f resistance.csv -g1 sul3 -g2 qacL --output sul3-qacL
 ```
-cd existing_repo
-git remote add origin https://gitlab.com/INISA/gendist.git
-git branch -M main
-git push -uf origin main
-```
+![Co-occurrence plot](https://github.com/braddmg/images/blob/main/sul3-qacL_histogram.pdf)
+In this case these genes since to have a genetic distance aprox of 1.1 kb, that explain their co-occurence across the set of plasmids. 
