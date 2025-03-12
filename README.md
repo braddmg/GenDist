@@ -25,6 +25,7 @@ Start by reviewing the available options with:
 ```
 Rscript Co-occurrence.R -h 
 ```
+```
 Options:
         -f FILE, --file=FILE
                 Input CSV file (gene presence/absence matrix)
@@ -37,6 +38,7 @@ Options:
 
         -h, --help
                 Show this help message and exit
+```
 ## Example Run
 To run the co-occurrence analysis using the matrix.csv file and a Jaccard distance threshold of 0.5:
 ``` bash
