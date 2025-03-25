@@ -65,7 +65,7 @@ Calculate genomic distances between two genes.
 
 options:
   -h, --help            show this help message and exit
-  -f FILE, --file FILE  The input file with genomic data (TSV format).
+  -f FILE, --file FILE  The input file with genomic data (txt format).
   -g1 GENE1, --gene1 GENE1
                         The first gene to compare.
   -g2 GENE2, --gene2 GENE2
