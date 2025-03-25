@@ -48,7 +48,7 @@ Options:
 To run the co-occurrence analysis using theresistance.txt file and a Jaccard distance threshold of 0.5:
 ``` bash
 # -p option allow to scale node size by gene prevalence
-Rscript Co-occurrence.R -f matrix.csv -t 0.5 -p -o network.pdf
+Rscript Co-occurrence.R -f resistance.txt -t 0.5 -p -o network.pdf
 ```
 The plot will evaluate gene co-occurrence. You’ll get a PDF file (network.pdf) with the network and a CSV file with Jaccard distances for further analysis. 
 ![Co-occurrence plot](https://github.com/braddmg/images/blob/main/network-1.png)
@@ -78,7 +78,7 @@ Run the genetic distance analysis on resistance.csv, which contains resistance g
 
 If your dataset includes circular contigs, such as plasmids, you can provide a .txt file specifying the sequence name, circularity status, and total length. This information will be used to accurately calculate the genetic distance between genes while accounting for circularity. If no such file is provided, all sequences will be treated as linear by default.  
 ```
-python GenDist.py -f resistance.csv -g1 sul3 -g2 qacL --output sul3-qacL
+python GenDist.py -f resistance.txt -g1 sul3 -g2 qacL --output sul3-qacL
 ```
 ```
 --output sul3-qacL
